@@ -1,0 +1,110 @@
+Product name: Product1 - Hydrating Face Cream
+Description:
+Skin type: Dry, Normal
+Key ingredients: Hyaluronic Acid, Glycerin, Shea Butter
+Benefits: Deep hydration, restores skin barrier, smooths fine lines
+Usage: Apply morning and night to cleansed face and neck. Use after serum.
+Precautions: For external use only. Patch test for sensitive skin.
+Price: 180 MAD
+Size: 50 ml
+
+------------------------------------------------------------
+Product name: Product2 - Mattifying Gel Cream
+Description:
+Skin type: Oily, Combination
+Key ingredients: Niacinamide, Zinc PCA, Salicylic Acid (0.5%)
+Benefits: Controls shine, minimizes pores, reduces acne breakouts
+Usage: Apply a pea-sized amount in the morning after toner. Reapply as needed.
+Precautions: Avoid contact with eyes. If irritation occurs, discontinue use.
+Price: 160 MAD
+Size: 40 ml
+
+------------------------------------------------------------
+Product name: Product3 - Soothing Night Serum
+Description:
+Skin type: Sensitive, Redness-prone
+Key ingredients: Centella Asiatica (Cica), Panthenol, Allantoin
+Benefits: Calms irritation, supports skin recovery, improves texture overnight
+Usage: Apply 2-3 drops on cleaned skin before moisturizer at night.
+Precautions: Perform patch test if highly reactive.
+Price: 220 MAD
+Size: 30 ml
+
+------------------------------------------------------------
+Product name: Product4 - Brightening Vitamin C Serum
+Description:
+Skin type: Dull, Pigmented, All skin types
+Key ingredients: Vitamin C (L-ascorbic acid 10%), Ferulic Acid, Vitamin E
+Benefits: Reduces dark spots, brightens complexion, antioxidant protection
+Usage: Apply in the morning before sunscreen. Store away from direct sunlight.
+Precautions: May increase sun sensitivity; use SPF daily.
+Price: 240 MAD
+Size: 30 ml
+
+------------------------------------------------------------
+Product name: Product5 - Gentle Exfoliating Cleanser
+Description:
+Skin type: All skin types (avoid on open wounds)
+Key ingredients: Lactic Acid (3%), Amino acids, Aloe Vera
+Benefits: Removes dead skin cells, smooths texture, gentle enough for regular use
+Usage: Use 2-3 times per week. Massage onto damp skin and rinse thoroughly.
+Precautions: Do not over-exfoliate. Use sunscreen after exfoliation days.
+Price: 120 MAD
+Size: 150 ml
+
+------------------------------------------------------------
+Product name: Product6 - Repairing Eye Cream
+Description:
+Skin type: All skin types, aging concerns
+Key ingredients: Peptides, Caffeine, Hyaluronic Acid
+Benefits: Reduces puffiness, firms delicate eye area, hydrates
+Usage: Dab small amount around orbital bone morning and night.
+Precautions: Avoid getting product into eyes.
+Price: 200 MAD
+Size: 15 ml
+
+------------------------------------------------------------
+Product name: Product7 - Lightweight Sunscreen SPF50
+Description:
+Skin type: All skin types, suitable for oily skin
+Key ingredients: Zinc Oxide, Octocrylene, Antioxidants
+Benefits: Broad-spectrum UV protection, non-greasy finish, suitable under makeup
+Usage: Apply generously 15 minutes before sun exposure. Reapply every 2 hours.
+Precautions: For external use only.
+Price: 140 MAD
+Size: 50 ml
+
+------------------------------------------------------------
+Product name: Product8 - Repair Shampoo for Damaged Hair
+Description:
+Hair type: Damaged, Chemically-treated
+Key ingredients: Keratin, Argan Oil, Panthenol
+Benefits: Restores strength, reduces breakage, improves shine
+Usage: Apply to wet hair, lather, rinse, follow with conditioner.
+Precautions: Avoid contact with eyes.
+Price: 110 MAD
+Size: 250 ml
+
+------------------------------------------------------------
+Product name: Product9 - Body Lotion with Shea Butter
+Description:
+Skin type: Dry to very dry
+Key ingredients: Shea Butter, Glycerin, Vitamin F
+Benefits: Intense nourishment, long-lasting hydration, soft skin
+Usage: Apply daily after shower on damp skin for best absorption.
+Precautions: For external use only.
+Price: 90 MAD
+Size: 300 ml
+
+------------------------------------------------------------
+Product name: Product10 - Clarifying Toner
+Description:
+Skin type: Oily, Combination, Acne-prone
+Key ingredients: Salicylic Acid (0.5%), Witch Hazel, Green Tea Extract
+Benefits: Unclogs pores, reduces oiliness, soothes inflammation
+Usage: Apply with cotton pad after cleansing. Use nightly or as tolerated.
+Precautions: Avoid if you use strong retinoids without guidance.
+Price: 130 MAD
+Size: 150 ml
+
+------------------------------------------------------------
