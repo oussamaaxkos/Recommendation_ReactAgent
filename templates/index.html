@@ -183,6 +183,21 @@
             </div>
         </div>
     </div>
+    <div id="chat"></div>
+    <script>
+async function sendMessage(msg) {
+    const res = await fetch("/ask", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: msg})
+    });
+    const data = await res.json();
+    
+    // Append HTML directly
+    const chatDiv = document.getElementById("chat");
+    chatDiv.innerHTML += `<div class="ai-message">${data.response}</div>`;
+}
+</script>
 
     <script>
         const messagesContainer = document.getElementById('messagesContainer');

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - GOOGLE_API_KEY=AIzaSyASnd2uVOVXESDA7-Q2yrQO7thvV66XQ8U
+      - NEON_URL=postgresql://neondb_owner:npg_dL4STO9vmgnA@ep-jolly-shape-abv7053m-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    volumes:
+      - ./Ai-Agent-Products:/app/Ai-Agent-Products

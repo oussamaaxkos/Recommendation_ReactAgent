@@ -68,7 +68,7 @@ def get_product_from_db(product_name: str) -> str:
         conn = psycopg2.connect(NEON_URL)
         cur = conn.cursor()
         cur.execute("""
-            SELECT name, skin_hair_type, key_ingredients, benefits, usage, precautions, price, size, image_path
+            SELECT name, description, skin_type, key_ingredients, benefits, usage, precautions, price, size
             FROM products
             WHERE name ILIKE %s
         """, (f"%{product_name}%",))
@@ -80,61 +80,25 @@ def get_product_from_db(product_name: str) -> str:
         if row:
             return f"""
 Product Name: {row[0]}
-skin_hair_type: {row[1]}
-key_ingredients: {row[2]}
-benefits: {row[3]}
-usage: {row[4]}
-precautions: {row[5]}
-price: {row[6]}
-size: {row[7]}
-image_path: {row[8]}
+Description: {row[1]}
+Skin Type: {row[2]}
+Key Ingredients: {row[3]}
+Benefits: {row[4]}
+Usage: {row[5]}
+Precautions: {row[6]}
+Price: {row[7]}
+Size: {row[8]}
 """
         else:
-            return f"Product not found in database {product_name}."
+            return "Product not found in database."
     except Exception as e:
         return f"Database error: {str(e)}"
-
-
-
-@tool
-def html_card_tool(db_result: str) -> str:
-    """
-    Converts a product database result string into an HTML card using the DB keys as-is.
-    """
-    lines = db_result.strip().split("\n")
-    data = {}
-    for line in lines:
-        if ":" in line:
-            key, value = line.split(":", 1)
-            data[key.strip()] = value.strip()
-
-    html_card = f"""
-    <div class="product-card" style="border:1px solid #ccc; padding:16px; border-radius:8px; width:320px; margin:10px;">
-
-        <img src="/static/{data.get('image_path')}" alt="{data.get('Product Name', '')}" style="width:100%; height:auto;" />
-        <h3>{data.get('Product Name', '')}</h3> 
-        <h3>{data.get('Product Name', '')}</h3>
-        <p><strong>Skin/Hair Type:</strong> {data.get('skin_hair_type', '')}</p>
-        <p><strong>Price:</strong> {data.get('price', '')} ({data.get('size', '')})</p>
-        <p><strong>Key Ingredients:</strong> {data.get('key_ingredients', '')}</p>
-        <p><strong>Benefits:</strong> {data.get('benefits', '')}</p>
-        <p><strong>Usage:</strong> {data.get('usage', '')}</p>
-        <p><strong>Precautions:</strong> {data.get('precautions', '')}</p>
-        <button onclick="alert('Redirect to buy page for {data.get('Product Name', '')}')">Buy</button>
-    </div>
-    """
-    return html_card
-
     
 
 # 3️⃣ Add the new tool to your agent
 
 tools.append(get_product_from_db)
 tools_dict[get_product_from_db.name] = get_product_from_db
-
-tools.append(html_card_tool)
-tools_dict[html_card_tool.name] = html_card_tool
-
 
 
 
@@ -167,7 +131,6 @@ You are a skincare seller agent. Ask questions step by step:
 4. Texture preference
 
 Only ask ONE question at a time. After collecting all info, recommend the best product.
-but if the user provides all info at once, proceed to recommend without asking further questions.
 """
 
 def should_continue(state: AgentState):
@@ -194,51 +157,18 @@ def take_action(state: AgentState) -> AgentState:
         # Step 2: If product_search_tool found a match, automatically call DB tool
         if tool_name == "product_search_tool" and "Match 1:" in result:
             # crude extraction of first product name (assumes first line after 'Match 1:' is name)
-            
-            # first_product_line = result.splitlines()[1]
-            # product_name = first_product_line.strip()
-            print("product_search_tool")
-            
-
-            prompt = f"""
-            You are given product information from a document:
-            {result}
-            Identify the main product name from this text. Return only the product name.
-            """
-            # product_name = llm.invoke([HumanMessage(content=prompt)]).content
-            # db_result = get_product_from_db.invoke({"product_name": product_name})
-            
-
-            llm_response = llm.invoke([HumanMessage(content=prompt)]).content
-
-            # Extract pure string
-            if isinstance(llm_response, list):
-                # Usually a list of dicts
-                product_name = llm_response[0].get("text", "").strip()
-            else:
-                product_name = str(llm_response).strip()
-
-            # Call DB tool with plain string
-            db_result = get_product_from_db.invoke(product_name)
-
-
-
+            first_product_line = result.splitlines()[1]
+            product_name = first_product_line.strip()
 
             # Step 3: Call Neon DB tool
             # db_result = get_product_from_db(product_name)
-            # db_result = get_product_from_db.invoke(product_name)
+            db_result = get_product_from_db.invoke(product_name)
 
-
-            # product_name = llm.invoke([HumanMessage(content=prompt)]).content
-            # db_result = get_product_from_db.invoke({"product_name": product_name})
-
-            print(db_result)
-            html_card = html_card_tool.invoke(db_result)
-            result = html_card
+            html_card = generate_product_card(db_result)
 
             
 
-            # result += f"\n\n---\nOfficial Database Info:\n{db_result}"
+            result += f"\n\n---\nOfficial Database Info:\n{db_result}"
 
         # Ensure result is string
         if isinstance(result, list):
@@ -326,4 +256,4 @@ def ask():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)
